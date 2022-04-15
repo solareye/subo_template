@@ -1,11 +1,13 @@
-package com.github.solareye.subotemplate
+package com.github.solareye.subotemplate.recipe
 
 import com.android.SdkConstants
 import com.android.tools.idea.npw.module.recipes.createDefaultDirectories
 import com.android.tools.idea.npw.module.recipes.gitignore
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
-import org.jetbrains.kotlin.idea.framework.isExternalLibrary
+import com.github.solareye.subotemplate.suboConfigProperties
+import com.github.solareye.subotemplate.suboGradleFile
+import com.github.solareye.subotemplate.suboModuleManifest
 import java.io.File
 
 fun RecipeExecutor.suboModuleTemplate(

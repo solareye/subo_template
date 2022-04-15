@@ -1,9 +1,9 @@
 package com.github.solareye.subotemplate
 
-import com.android.tools.idea.gradle.dsl.api.GradleSettingsModel
 import com.android.tools.idea.wizard.template.*
+import com.github.solareye.subotemplate.app.suboDemoTemplate
+import com.github.solareye.subotemplate.recipe.suboModuleTemplate
 import java.io.File
-import java.net.URL
 
 private const val MIN_SDK = 23
 

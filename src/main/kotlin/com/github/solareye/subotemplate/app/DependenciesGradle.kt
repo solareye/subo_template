@@ -1,47 +1,5 @@
-package com.github.solareye.subotemplate
+package com.github.solareye.subotemplate.app
 
-fun someActivity(
-    packageName: String,
-    entityName: String,
-) = """
-package $packageName
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-
-class ${entityName}Activity : SuboDemoActivity() {
-
-    override val featureProvider: FeatureProvider
-        get() = TaxCalendarFeature
-
-    override var isMockedData = BuildConfig.MOCK
-
-    override var buildType = when (BuildConfig.BUILD_TYPE) {
-        "k3"      -> BuildType.K3
-        "release" -> BuildType.RELEASE
-        else      -> BuildType.CUSTOM("", "")
-    }
-
-}
-"""
-
-fun someActivityLayout(
-    entityName: String
-) = """
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".${entityName}Activity">
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-"""
 fun dependenciesValues(
 
 ) = """
@@ -89,7 +47,7 @@ ext {
             retrofitGson : "com.squareup.retrofit2:converter-gson:${'$'}retrofitVersion",
     ]
 
-    def smb = "1.2200.*"
+    def smb = "1.2200.30"
     vtbDeps = [
             integration   : "ru.vtb.smb:integration_library:${'$'}smb",
             authorization : "ru.vtb.smb:authorization:${'$'}smb",
