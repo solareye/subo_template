@@ -29,7 +29,7 @@ intellij {
     pluginName.set(properties("pluginName"))
     version.set(properties("platformVersion"))
     type.set(properties("platformType"))
-
+    intellij.localPath.set(properties("androidStudioRunPath"))
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins.set(properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty))
 }
@@ -49,6 +49,7 @@ qodana {
 }
 
 tasks {
+    buildSearchableOptions { systemProperty("idea.is.internal", "") }
     // Set the JVM compatibility versions
     properties("javaVersion").let {
         withType<JavaCompile> {
