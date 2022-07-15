@@ -1,7 +1,7 @@
 package com.github.solareye.subotemplate
 
 import com.android.tools.idea.wizard.template.*
-import com.github.solareye.subotemplate.app.suboDemoTemplate
+import com.github.solareye.subotemplate.recipe.suboDemoTemplate
 import com.github.solareye.subotemplate.recipe.suboModuleTemplate
 import java.io.File
 
@@ -33,7 +33,7 @@ val suboTemplate
             default = "main"
             help = "The name of the layout to create for the activity"
             constraints = listOf(Constraint.LAYOUT, Constraint.UNIQUE, Constraint.NONEMPTY)
-            suggest = { activityToLayout(entityName.value.toLowerCase()) }
+            suggest = { activityToLayout(entityName.value.lowercase()) }
         }
 
         widgets(
@@ -46,20 +46,24 @@ val suboTemplate
 
             data as ModuleTemplateData
 
-            val featureSuffix = data.packageName.split(".").last()
-            val featureName = "feature_${featureSuffix}"
+            val featureName = data.themesData.appName
+            val featureModuleName = "feature_${featureName.lowercase()}"
+            val suboModulePackageName = "${packageNameParam.defaultValue}.$featureModuleName"
 
             suboDemoTemplate(
                 data,
                 packageNameParam.defaultValue,
                 featureName,
+                featureModuleName,
+                suboModulePackageName,
                 entityName.value,
                 layoutName.value
             )
             suboModuleTemplate(
                 data,
-                packageNameParam.defaultValue,
+                suboModulePackageName,
                 featureName,
+                featureModuleName,
             )
         }
     }
