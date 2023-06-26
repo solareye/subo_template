@@ -4,13 +4,13 @@ fun dependenciesGradle(
 
 ) = """
 ext {
-    def smb = "1.2200.60"
+    def smb = "2.2304.11"
     vtbDeps = [
             subo_demo     : "ru.vtb.smb:subo_demo:${'$'}smb",
             subo_common   : "ru.vtb.smb:subo_common:${'$'}smb"
     ]
 
-    def daggerVersion = "2.37"
+    def daggerVersion = "2.43.2"
     daggerCompiler = "com.google.dagger:dagger-compiler:${'$'}daggerVersion"
 
     def lottieVersion = "4.2.1"

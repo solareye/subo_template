@@ -13,13 +13,12 @@ fun buildGradleApp(
     apply from: "${'$'}rootDir/dependencies.gradle"
 
     android {
-        compileSdkVersion 31
+        compileSdkVersion 33
         buildToolsVersion "30.0.3"
 
         defaultConfig {
             applicationId "$applicationId"
-            minSdkVersion 23
-            targetSdkVersion 31
+            minSdkVersion 26
             testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
             buildConfigField("String", "Build", "\"release\"")
         }

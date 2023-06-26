@@ -56,8 +56,8 @@ class ${featureName}FeatureFragment : FeatureFragment(), NavigationHelper {
     @Inject
     lateinit var defaultViewModelFactory: dagger.Lazy<InjectingSavedStateViewModelFactory>
 
-    override fun getDefaultViewModelProviderFactory(): ViewModelProvider.Factory =
-        defaultViewModelFactory.get().create(this, arguments)
+    override val defaultViewModelProviderFactory: ViewModelProvider.Factory
+        get() = defaultViewModelFactory.get().create(this, arguments)
 
     private val viewModel: ${featureName}ViewModel by viewModels()
     private val binding by viewBinding(${moduleFragmentContainerLayoutName.toCamelCase()}Binding::bind)

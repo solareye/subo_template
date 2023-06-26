@@ -33,21 +33,51 @@ fun RecipeExecutor.suboDemoTemplate(
         ),
         rootDir.resolve(FN_BUILD_GRADLE)
     )
+    //FIXME: наполнение стандартных файлов без файлов-дублей
+
+    try {
+        save(
+            buildGradle(),
+            File("./").resolve("_$FN_BUILD_GRADLE")
+        )
+    } catch (ex: Exception) {
+        ex.printStackTrace()
+    }
 
     /**
      * gradle.properties
      */
+    //FIXME: не работает
     rootDir.resolve(FN_GRADLE_PROPERTIES).delete()
     save(
         gradleProperties(),
         rootDir.resolve(FN_GRADLE_PROPERTIES)
     )
-
     //FIXME: наполнение стандартных файлов без файлов-дублей
     try {
         save(
-            buildGradle(),
-            File("./").resolve("_$FN_BUILD_GRADLE")
+            gradleProperties(),
+            File("./").resolve("_$FN_GRADLE_PROPERTIES")
+        )
+    } catch (ex: Exception) {
+        ex.printStackTrace()
+    }
+
+    /**
+     * gradle-wrapper.properties
+     */
+    //FIXME: не работает
+    rootDir.resolve(FN_GRADLE_WRAPPER_PROPERTIES).delete()
+    save(
+        gradleWrapperProperties(),
+        rootDir.resolve(FN_GRADLE_WRAPPER_PROPERTIES)
+    )
+    //FIXME: наполнение стандартных файлов без файлов-дублей
+    //TODO: Не отрабатывает — нельзя добавить файл в папку gradle/wrapper/ ?
+    try {
+        save(
+            gradleWrapperProperties(),
+            File("./gradle/wrapper/").resolve("_$FN_GRADLE_WRAPPER_PROPERTIES")
         )
     } catch (ex: Exception) {
         ex.printStackTrace()
@@ -144,8 +174,5 @@ fun RecipeExecutor.suboDemoTemplate(
     } catch (ex: Exception) {
         ex.printStackTrace()
     }
-
-//    androidModulePropertiesModel()
-
 
 }

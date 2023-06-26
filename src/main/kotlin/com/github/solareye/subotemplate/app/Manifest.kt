@@ -23,7 +23,7 @@ fun manifest(
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme.Light.2">
+            android:theme="@style/UiKitTheme.Light.Old">
             <activity
                 android:name=".MainActivity"
                 android:exported="true"

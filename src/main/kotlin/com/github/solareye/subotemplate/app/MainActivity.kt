@@ -24,7 +24,7 @@ class ${entityName}Activity : SuboDemoActivity() {
     override var buildType = when (BuildConfig.BUILD_TYPE) {
         "k3"      -> BuildType.K3
         "release" -> BuildType.RELEASE
-        else      -> BuildType.CUSTOM("", "")
+        else      -> BuildType.CUSTOM("")
     }
 
 }

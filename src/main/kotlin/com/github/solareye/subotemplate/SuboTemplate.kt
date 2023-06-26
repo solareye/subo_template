@@ -5,11 +5,10 @@ import com.github.solareye.subotemplate.recipe.suboDemoTemplate
 import com.github.solareye.subotemplate.recipe.suboModuleTemplate
 import java.io.File
 
-private const val MIN_SDK = 23
+private const val MIN_SDK = 26
 
 val suboTemplate
     get() = template {
-        thumb { File("template_base_fragment.png") }
         name = "Subo Module"
         description = "Создаём новый проект для модуля СУБО"
         minApi = MIN_SDK
@@ -41,6 +40,8 @@ val suboTemplate
             TextFieldWidget(layoutName),
             PackageNameWidget(packageNameParam)
         )
+
+        thumb { File("logo.png") }
 
         recipe = { data: TemplateData ->
 
